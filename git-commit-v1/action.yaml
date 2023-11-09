@@ -13,5 +13,13 @@ runs:
     - name: Commit and push
       shell: bash
       run: |
+        touch random.txt
+
+    - name: Commit and push
+      shell: bash
+      run: |
         git config --global user.name "Shubham Joshi"
         git config --global user.email "shubhamjoshi199826@gmail.com"
+        git add .
+        git commit -m "random txt inserted"
+        git push
