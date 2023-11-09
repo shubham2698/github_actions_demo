@@ -1,11 +1,5 @@
 name: 'Git Commit'
 description: 'Commit and push changes to repository'
-inputs:
-  add:
-    description: 'Add file contents to the git index'
-    required: false
-    type: ['string', 'array']
-    default: ""
     
 runs:
   using: 'composite'
