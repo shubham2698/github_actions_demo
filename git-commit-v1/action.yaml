@@ -1,0 +1,17 @@
+name: 'Git Commit'
+description: 'Commit and push changes to repository'
+inputs:
+  add:
+    description: 'Add file contents to the git index'
+    required: false
+    type: ['string', 'array']
+    default: ""
+    
+runs:
+  using: 'composite'
+  steps:
+    - name: Commit and push
+      shell: bash
+      run: |
+        git config --global user.name "Shubham Joshi"
+        git config --global user.email "shubhamjoshi199826@gmail.com"
