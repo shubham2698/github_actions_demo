@@ -4,14 +4,16 @@ on:
   workflow_dispatch:
 
 jobs:
-    Send-slack-notification:
+    Git_Commit_Push:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout Code
           uses: actions/checkout@v4
 
         - name: Add files
-          run: touch random_2.txt
+          run: |
+            touch random_3.txt
+            touch random_2.sh
 
         - name: Commit changes and push
           id: commit_and_push
