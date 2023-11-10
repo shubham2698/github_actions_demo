@@ -1,0 +1,28 @@
+name: Slack Bot
+
+on:
+  push:
+    branches:
+      - none
+  workflow_dispatch:
+
+jobs:
+    Send-slack-notification:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4 
+
+        - name: send to payload to slack
+          uses: ./report-to-slack
+          with:
+            channel-id: "C06168TBVT8"
+            slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+          env:
+            COLOR_CODE: "#FF0000"
+            SLACK_GITHUB_ACTION_WORKFLOW_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            SLACK_TEST_REPORT: "TBD"
+            SLACK_GITHUB_BRANCH: "${{ github.ref_name }}"
+            FALLBACK: "Hawkeye Core GHA Test"
+            HEADER_TEXT: "Hawkeye Core GHA Test"
+            SLACK_GITHUB_AUTHOR: "${{ github.actor }}"
