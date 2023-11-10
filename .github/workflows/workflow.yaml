@@ -8,10 +8,19 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout Code
-          uses: actions/checkout@v4 
+          uses: actions/checkout@v4
+
+        - name: Add files
+          run: touch random_2.txt
 
         - name: Commit changes and push
           id: commit_and_push
           uses: ./git-commit-v1
           with:
             working_directory: ${{ github.action_path }}
+            branch: "main"
+            file_pattern: './*.txt'
+            repository: 'shubham2698/github_actions_demo'
+            commit_user_name: "shubham-vodafone"
+            commit_user_email: "shubhamjoshi199826@gmail.com"
+            commit_author: "Shubham Joshi"
