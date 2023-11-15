@@ -34,7 +34,7 @@ jobs:
           docker ps | grep mysql
 
       - name: Grant privileges
-        run: mysql -h 127.0.0.1 --port 33306 -u root -prootpassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';"
+        run: mysql -h 127.0.0.1 --port 3306 -u root -prootpassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';"
 
           
 
