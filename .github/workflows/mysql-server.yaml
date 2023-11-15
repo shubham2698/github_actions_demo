@@ -33,9 +33,9 @@ jobs:
           docker images
           systemctl status mysql
 
-      # - name: Grant privileges
-      #   run: |
-      #       sudo mysql -h 127.0.0.1 -u root --port=3306 --password=rootpassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password'"
+      - name: Grant privileges
+        run: |
+            sudo mysql -h 0.0.0.0 -u root --port=3306 --password=rootpassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password'"
           
 
       
