@@ -26,7 +26,6 @@ jobs:
       steps:
       - name: Update and install dependencies
         run: |
-          sudo systemctl status mysql
           sudo systemctl start mysql
           sudo apt-get update
           sudo apt-get install default-mysql-client xxd -y
