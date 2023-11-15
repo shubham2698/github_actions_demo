@@ -19,7 +19,7 @@ jobs:
             MYSQL_PASSWORD: password
             MYSQL_ROOT_HOST: '%'
           ports:
-            - 33306:3306
+            - 3306:3306
           options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
       name: setup-mysql-server
@@ -34,7 +34,7 @@ jobs:
           docker ps | grep mysql
 
       - name: Grant privileges
-        run: mysql -h 127.0.0.1 --port 3306 -u root -prootpassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';"
+        run: mysql -h 127.0.0.1 --port 33306 -u root -prootpassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';"
 
           
 
