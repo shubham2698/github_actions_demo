@@ -27,7 +27,7 @@ jobs:
       - name: Update and install dependencies
         run: |
           sudo systemctl status mysql
-          sudo netstat -tuln | grep 3306
+          sudo systemctl start mysql
           sudo apt-get update
           sudo apt-get install default-mysql-client xxd -y
 
