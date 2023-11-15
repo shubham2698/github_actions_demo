@@ -9,6 +9,7 @@ on:
 jobs:
     mysql_server:
       runs-on: ubuntu-latest
+
       services:
         mysql:
           image: mysql:5.7
@@ -25,12 +26,11 @@ jobs:
       steps:
       - name: Update and install dependencies
         run: |
-          sudo service mysqld start
           sudo apt-get update
           sudo apt-get install default-mysql-client xxd -y
 
       - name: Grant privileges
         run: |
-          sudo mysql -h 127.0.0.1 -u root -P 3306 -p -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';"
+          sudo mysql -h 127.0.0.1 -u root -P 3306 -p -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'rootpassword';"
 
       
