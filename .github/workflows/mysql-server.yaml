@@ -24,10 +24,18 @@ jobs:
       name: setup-mysql-server
       continue-on-error: true
       steps:
+
+      - name: change root password
+        run: |
+          sudo mysqld_safe --skip-grant-tables &
+          mysql -u root mysql
+          UPDATE user SET Password=PASSWORD('rootpassword') WHERE User='root';
+          FLUSH PRIVILEGES;
+          quit
+
       - name: Update and install dependencies
         run: |
           sudo systemctl start mysql
-          
           sudo apt-get install default-mysql-client xxd -y
 
       - name: Grant privileges
