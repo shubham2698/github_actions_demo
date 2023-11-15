@@ -28,6 +28,7 @@ jobs:
 
       - name: Update and install dependencies
         run: |
+          sleep 10
           sudo service mysql start
           docker ps
 
