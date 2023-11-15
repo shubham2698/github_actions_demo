@@ -1,4 +1,4 @@
-name: Slack Bot
+name: MySQL Server Setup
 
 on:
   push:
@@ -34,7 +34,7 @@ jobs:
 
       - name: Grant privileges
         run: |
-            mysql -u root -p'rootpassword'
+            mysql -h 127.0.0.1 -P 3306 -u root -ppassword
           
 
       
