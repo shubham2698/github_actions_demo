@@ -32,6 +32,6 @@ jobs:
 
       - name: Grant privileges
         run: |
-          sudo mysql -h 127.0.0.1 -u root -P 3306 -p -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';"
+          sudo mysql -h 127.0.0.1 -u root -P 3306 -p 'rootpassword' -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';"
 
       
