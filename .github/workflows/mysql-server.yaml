@@ -32,7 +32,7 @@ jobs:
 
       - name: Grant privileges
         run: |
-            sudo mysql -h localhost -u root --port=3306 --password=rootpassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password'"
+            sudo mysql -h localhost -u root --port=3306 --password=rootpassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'rootpassword'"
           
 
       
