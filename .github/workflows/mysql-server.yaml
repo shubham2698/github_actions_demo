@@ -9,7 +9,6 @@ on:
 jobs:
     mysql_server:
       runs-on: ubuntu-latest
-
       services:
         mysql:
           image: mysql:5.7
@@ -18,24 +17,27 @@ jobs:
             MYSQL_USER: user
             MYSQL_PASSWORD: password
             MYSQL_ROOT_PASSWORD: rootpassword
-            MYSQL_ROOT_HOST: '%'
           ports:
             - 33306:3306
+          options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
       name: setup-mysql-server
       continue-on-error: true
       steps:
 
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Update and install dependencies
         run: |
-          sleep 10
+          sleep 30
           sudo service mysql start
           docker ps
 
       - name: Grant privileges
         run: |
-            mysql -h 127.0.0.1 -P 3306 -uroot -p
-            
+            mysql -h 127.0.0.1 --port 3306 -uroot -prootpassword
+
           
 
       
