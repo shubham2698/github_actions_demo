@@ -31,7 +31,7 @@ jobs:
           docker ps
 
       - name: Grant privileges
-        run: mysql -h 127.0.0.1 --port 33306 -u root -prootpassword -e 'CREATE DATABASE IF NOT EXISTS test_db;'
+        run: mysql -u --port 33306 root -prootpassword -e "GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' IDENTIFIED BY 'rootpassword'; FLUSH PRIVILEGES;"
 
           
 
