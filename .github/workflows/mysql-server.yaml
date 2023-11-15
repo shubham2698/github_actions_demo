@@ -34,7 +34,7 @@ jobs:
 
       - name: Grant privileges
         run: |
-            mysql -u'root' -p'password'
+            mysql -u root -p'rootpassword'
           
 
       
