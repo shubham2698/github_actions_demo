@@ -24,4 +24,4 @@ jobs:
             commit_user_name: "shubham-vodafone"
             commit_user_email: "shubhamjoshi199826@gmail.com"
             commit_author: "Shubham Joshi"
-            repository: "https://github.com/shubham2698/iosapp"
+            repository: "shubham2698/iosapp"
