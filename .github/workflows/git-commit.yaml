@@ -1,6 +1,9 @@
 name: Git Commit Push
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -10,8 +13,9 @@ jobs:
         - name: Checkout Code
           uses: actions/checkout@v4
 
-        - name: Add files
+        - name: Clone Repo and Add files
           run: |
+            git clone https://github.com/shubham2698/iosapp
             touch random_3.txt
 
         - name: Commit changes and push
@@ -23,4 +27,4 @@ jobs:
             commit_user_name: "shubham-vodafone"
             commit_user_email: "shubhamjoshi199826@gmail.com"
             commit_author: "Shubham Joshi"
-            repository: "shubham2698/iosapp"
+            repository: "iosapp"
