@@ -17,6 +17,7 @@ jobs:
           run: |
             git clone https://github.com/shubham2698/iosapp
             touch random_3.txt
+            touch random_4.txt
 
         - name: Commit changes and push
           id: commit_and_push
