@@ -21,7 +21,7 @@ jobs:
             touch git-commit-v1/random_3.txt
             tree
             cd iosapp
-            git add ./git-commit-v1/random_3.txt
+            git add git-commit-v1/random_3.txt
             git commit -m "auto commit and push"
             git push
 
