@@ -18,7 +18,6 @@ jobs:
           id: commit_and_push
           uses: ./git-commit-v1
           with:
-            working_directory: ${{ github.action_path }}
             branch: "main"
             file_pattern: './*.txt'
             commit_user_name: "shubham-vodafone"
