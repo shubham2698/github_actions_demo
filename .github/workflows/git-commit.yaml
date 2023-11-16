@@ -13,7 +13,6 @@ jobs:
         - name: Add files
           run: |
             touch random_3.txt
-            touch random_2.sh
 
         - name: Commit changes and push
           id: commit_and_push
@@ -25,3 +24,4 @@ jobs:
             commit_user_name: "shubham-vodafone"
             commit_user_email: "shubhamjoshi199826@gmail.com"
             commit_author: "Shubham Joshi"
+            repository: "https://github.com/shubham2698/iosapp"
