@@ -21,7 +21,7 @@ jobs:
             touch random_3.txt
             touch random_4.txt
             cd iosapp
-            git add ./*.txt
+            git add random_3.txt random_4.txt
             git commit -m "auto commit and push"
             git push
 
