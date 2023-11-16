@@ -19,7 +19,7 @@ jobs:
             git config --global user.name "Shubham Joshi"
             git clone https://github.com/shubham2698/iosapp
             touch git-commit-v1/random_3.txt
-            tree
+            cp git-commit-v1/random_3.txt iosapp
             cd iosapp
             git add git-commit-v1/random_3.txt
             git commit -m "auto commit and push"
