@@ -13,20 +13,23 @@ jobs:
         - name: Checkout Code
           uses: actions/checkout@v4
 
-        - name: Clone Repo and Add files
+        - name: Clone Repo , Add Files , Commit , Push
           run: |
             git clone https://github.com/shubham2698/iosapp
             touch random_3.txt
             touch random_4.txt
+            cd iosapp
+            git add ./*.txt
+            git commit -m "auto commit and push"
+            git push
 
-        - name: Commit changes and push
-          id: commit_and_push
-          uses: ./git-commit-v1
-          with:
-            working_directory: ${{ github.action_path }}
-            branch: "main"
-            file_pattern: './*.txt'
-            commit_user_name: "shubham-vodafone"
-            commit_user_email: "shubhamjoshi199826@gmail.com"
-            commit_author: "Shubham Joshi"
-            repository: "iosapp"
+        # - name: Commit changes and push
+        #   id: commit_and_push
+        #   uses: ./git-commit-v1
+        #   with:
+        #     branch: "main"
+        #     file_pattern: './*.txt'
+        #     commit_user_name: "shubham2698"
+        #     commit_user_email: "shubhamjoshi199826@gmail.com"
+        #     commit_author: "Shubham Joshi"
+        #     repository: "iosapp"
