@@ -58,7 +58,7 @@ runs:
       run: |
         if [ "${{ inputs.repository }}" != "." ]; then
           cd ${{ inputs.repository-name }}
-          # git checkout ${{ inputs.branch }}
+          git checkout ${{ inputs.branch }}
           src_path=${{ inputs.destination-folder }}
           result=""
           for file in ${{ inputs.file-name }}; do
@@ -68,6 +68,7 @@ runs:
           git commit -m "auto commit push"
           git push
         else
+          git checkout ${{ inputs.branch }}
           src_path=${{ inputs.destination-folder }}
           result=""
           for file in ${{ inputs.file-name }}; do
