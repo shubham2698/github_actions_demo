@@ -27,7 +27,7 @@ runs:
       run: |
         if [ "${{ inputs.repository-name }}" != "." ]; then
           git clone https://${{ inputs.token }}@github.com/${{ inputs.repository }}.git
-          cd ${{ inputs.repository-name }}
+          
         fi
       shell: bash
 
@@ -41,6 +41,9 @@ runs:
 
     - name: Add Commit push
       run: |
+        if [ "${{ inputs.repository-name }}" != "." ]; then
+          cd ${{ inputs.repository-name }}
+        fi
         git add .
         git commit -m "auto commit push"
         git push
