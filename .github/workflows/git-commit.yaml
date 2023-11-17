@@ -21,10 +21,10 @@ jobs:
         - name: Git Commit
           uses: ./git-commit-v1
           with:
-            repository: shubham2698/pibm_ra_13250
-            repository-name: pibm_ra_13250
+            repository: .
+            repository-name: .
             branch: main
             token: ${{ secrets.PAT }}
             file-pattern: "auto_generated_3.txt"
-            destination-folder: "PDF"
+            destination-folder: "git-commit-v1"
             
