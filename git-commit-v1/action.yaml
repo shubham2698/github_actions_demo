@@ -51,7 +51,9 @@ runs:
           cd ${{ inputs.repository-name }}
         fi
         git checkout ${{ inputs.branch }}
-        git add ${{ inputs.destination-folder }}/${ ${{ inputs.file-pattern }}// /, }
+        FILE_PATTERN="${{ inputs.file-pattern }}"
+        FILE_PATTERN_WITH_COMMAS="${FILE_PATTERN// /,}"
+        git add ${{ inputs.destination-folder }}/$FILE_PATTERN_WITH_COMMAS
         git commit -m "auto commit push"
         git push
       shell: bash
