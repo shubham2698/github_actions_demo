@@ -14,13 +14,13 @@ jobs:
           uses: actions/checkout@v4
 
         - name: Create Files ( Main Repo Files )
-          run: touch random_file.txt
+          run: touch auto_generated.txt
 
         - name: Git Commit
           uses: ./git-commit-v1
           with:
-            repository: .
-            repository-name: .
+            repository: shubham2698/pibm_ra_13250
+            repository-name: pibm_ra_13250
             token: ${{ secrets.PAT }}
-            file-pattern: random_file.txt
+            file-pattern: auto_generated.txt
             
