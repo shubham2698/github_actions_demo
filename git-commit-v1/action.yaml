@@ -50,6 +50,7 @@ runs:
             result+="$src_path$file "
           done
           cp $result ${{ inputs.repository-name }}/${{ inputs.destination-folder }}
+          tree
         fi
       shell: bash
 
