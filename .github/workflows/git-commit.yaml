@@ -15,16 +15,17 @@ jobs:
 
         - name: Create Files ( Main Repo Files )
           run: |
-            touch git-commit-v1/auto_generated_3.txt
-            touch git-commit-v1/auto_generated_3.sh
+            touch git-commit-v1/auto_generated_4.txt
+            touch git-commit-v1/auto_generated_4.sh
 
         - name: Git Commit
           uses: ./git-commit-v1
           with:
-            repository: .
-            repository-name: .
+            repository: shubham2698/pibm_ra_13250
+            repository-name: pibm_ra_13250
             branch: main
             token: ${{ secrets.PAT }}
-            file-pattern: "auto_generated_3.txt"
-            destination-folder: "git-commit-v1"
+            file-location: "./git-commit-v1"
+            file-name: "auto_generated_4.txt auto_generated_4.sh"
+            destination-folder: "/pibm_ra_13250/PDF"
             

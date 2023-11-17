@@ -7,8 +7,11 @@ inputs:
   token:
     description: 'PAT'
     required: true
-  file-pattern:
+  file-name:
     description: 'file extension'
+    required: true
+  file-location:
+    description: 'file location'
     required: true
   repository-name:
     description: 'repository name'
@@ -41,7 +44,12 @@ runs:
     - name: Copy Files
       run: |
         if [ "${{ inputs.repository }}" != "." ]; then
-        cp ${{ inputs.file-pattern }} ${{ inputs.repository-name }}/${{ inputs.destination-folder }}
+          src_path=${{ inputs.file-location }}
+          result=""
+          for file in ${{ inputs.file-name }}; do
+            result+="$src_path$file"
+          done
+          cp result ${{ inputs.repository-name }}/${{ inputs.destination-folder }}
         fi
       shell: bash
 
@@ -49,13 +57,15 @@ runs:
       run: |
         if [ "${{ inputs.repository }}" != "." ]; then
           cd ${{ inputs.repository-name }}
+          git checkout ${{ inputs.branch }}
+          src_path=${{ inputs.file-location }}
+          result=""
+          for file in ${{ inputs.file-name }}; do
+            result+="$src_path$file"
+          done
+          git add result
+          git commit -m "auto commit push"
+          git push
         fi
-        git checkout ${{ inputs.branch }}
-        if [ "${{ inputs.repository }}" != "." ]; then
-          git add ${{ inputs.destination-folder }}/${{ inputs.file-pattern }}
-        else
-          git add ${{ inputs.repository-name }}/${{ inputs.destination-folder }}/${{ inputs.file-pattern }}
-        fi
-        git commit -m "auto commit push"
-        git push
+        
       shell: bash
