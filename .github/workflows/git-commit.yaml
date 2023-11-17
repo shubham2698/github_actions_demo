@@ -23,7 +23,7 @@ jobs:
           with:
             repository: shubham2698/pibm_ra_13250
             repository-name: pibm_ra_13250
-            branch: main
+            branch: scrape-grades-gpoints
             token: ${{ secrets.PAT }}
             file-location: "./git-commit-v1/"
             file-name: "auto_generated_4.txt auto_generated_4.sh"
