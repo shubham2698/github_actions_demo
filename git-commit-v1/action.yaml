@@ -67,6 +67,15 @@ runs:
           git add $result
           git commit -m "auto commit push"
           git push
+        else
+          src_path=${{ inputs.destination-folder }}
+          result=""
+          for file in ${{ inputs.file-name }}; do
+            result+="$src_path$file "
+          done
+          git add $result
+          git commit -m "auto commit push"
+          git push
         fi
         
       shell: bash
