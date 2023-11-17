@@ -47,7 +47,7 @@ runs:
           src_path=${{ inputs.file-location }}
           result=""
           for file in ${{ inputs.file-name }}; do
-            result+="$src_path$file"
+            result+="$src_path$file "
           done
           cp $result ${{ inputs.repository-name }}/${{ inputs.destination-folder }}
         fi
@@ -61,7 +61,7 @@ runs:
           src_path=${{ inputs.file-location }}
           result=""
           for file in ${{ inputs.file-name }}; do
-            result+="$src_path$file"
+            result+="$src_path$file "
           done
           git add $result
           git commit -m "auto commit push"
