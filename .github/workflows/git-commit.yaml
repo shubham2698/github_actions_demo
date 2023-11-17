@@ -15,8 +15,8 @@ jobs:
 
         - name: Create Files ( Main Repo Files )
           run: |
-            touch auto_generated_3.txt
-            touch auto_generated_3.sh
+            touch git-commit-v1/auto_generated_3.txt
+            touch git-commit-v1/auto_generated_3.sh
 
         - name: Git Commit
           uses: ./git-commit-v1
