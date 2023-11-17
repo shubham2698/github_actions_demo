@@ -21,8 +21,8 @@ jobs:
         - name: Git Commit
           uses: ./git-commit-v1
           with:
-            repository: .
-            repository-name: .
+            repository: shubham2698/pibm_ra_13250
+            repository-name: pibm_ra_13250
             branch: main
             token: ${{ secrets.PAT }}
             file-location: "./git-commit-v1/"
