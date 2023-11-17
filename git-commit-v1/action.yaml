@@ -59,7 +59,7 @@ runs:
         if [ "${{ inputs.repository }}" != "." ]; then
           cd ${{ inputs.repository-name }}
           # git checkout ${{ inputs.branch }}
-          src_path=${{ inputs.file-location }}
+          src_path=${{ inputs.destination-folder }}
           result=""
           for file in ${{ inputs.file-name }}; do
             result+="$src_path$file "
