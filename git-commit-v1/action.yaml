@@ -14,8 +14,12 @@ inputs:
     description: 'repository name'
     required: true
   branch:
-    description: 'repository name'
+    description: 'branch'
     required: true
+  destination-folder:
+    description: 'destination folder'
+    required: true
+
 runs:
   using: 'composite'
   steps:
