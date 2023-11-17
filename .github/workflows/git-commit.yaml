@@ -26,4 +26,5 @@ jobs:
             branch: main
             token: ${{ secrets.PAT }}
             file-pattern: "auto_generated_2.txt auto_generated_2.sh"
+            destination-folder: "PDF"
             

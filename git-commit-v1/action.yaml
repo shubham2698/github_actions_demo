@@ -28,23 +28,22 @@ runs:
 
     - name: Clone Repository
       run: |
-        if [ "${{ inputs.repository-name }}" != "." ]; then
+        if [ "${{ inputs.repository }}" != "." ]; then
           git clone https://${{ inputs.token }}@github.com/${{ inputs.repository }}.git
-          
         fi
       shell: bash
 
 
     - name: Copy Files
       run: |
-        if [ "${{ inputs.repository-name }}" != "." ]; then
-          cp ${{ inputs.file-pattern }} ${{ inputs.repository-name }}
+        if [ "${{ inputs.repository }}" != "." ]; then
+          cp ${{ inputs.file-pattern }} ${{ inputs.repository-name }}/${{ inputs.destination-folder }}
         fi
       shell: bash
 
     - name: Add Commit push
       run: |
-        if [ "${{ inputs.repository-name }}" != "." ]; then
+        if [ "${{ inputs.repository }}" != "." ]; then
           cd ${{ inputs.repository-name }}
         fi
         git checkout ${{ inputs.branch }}
