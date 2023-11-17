@@ -25,7 +25,7 @@ jobs:
             repository-name: pibm_ra_13250
             branch: main
             token: ${{ secrets.PAT }}
-            file-location: "./git-commit-v1/"
+            file-location: "git-commit-v1/"
             file-name: "auto_generated_4.txt auto_generated_4.sh"
             destination-folder: "PDF"
             
