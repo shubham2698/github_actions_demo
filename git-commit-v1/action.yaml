@@ -41,8 +41,6 @@ runs:
     - name: Copy Files
       run: |
         if [ "${{ inputs.repository }}" != "." ]; then
-        FILE_PATTERN="${{ inputs.file-pattern }}"
-        FILE_PATTERN_WITH_COMMAS="${FILE_PATTERN// /,}"
         cp ${{ inputs.file-pattern }} ${{ inputs.repository-name }}/${{ inputs.destination-folder }}
         fi
       shell: bash
@@ -53,7 +51,11 @@ runs:
           cd ${{ inputs.repository-name }}
         fi
         git checkout ${{ inputs.branch }}
-        git add ${{ inputs.repository-name }}/${{ inputs.destination-folder }}/${{ inputs.file-pattern }}
+        if [ "${{ inputs.repository }}" != "." ]; then
+          git add ${{ inputs.destination-folder }}/${{ inputs.file-pattern }}
+        else
+          git add ${{ inputs.repository-name }}/${{ inputs.destination-folder }}/${{ inputs.file-pattern }}
+        fi
         git commit -m "auto commit push"
         git push
       shell: bash
