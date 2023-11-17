@@ -38,6 +38,7 @@ jobs:
           uses: ./git-commit-v1
           with:
             repository: shubham2698/pibm_ra_13250
+            repository-name: pibm_ra_13250
             token: ${{ secrets.PAT }}
             file-pattern: .txt
             

@@ -10,7 +10,9 @@ inputs:
   file-pattern:
     description: 'file extension'
     required: true
-
+  repository-name:
+    description: 'repository name'
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -28,11 +30,12 @@ runs:
 
 
     - name: Copy Files
-      run: find . -type f -name "*${{ inputs.file-pattern }}" -exec cp {} ./${{ inputs.repository }} \;
+      run: find . -type f -name "*${{ inputs.file-pattern }}" -exec cp {} ./${{ inputs.repository-name }} \;
       shell: bash
 
     - name: Add Commit push
       run: |
+        cd ${{ inputs.repository-name }}
         git add .
         git commit -m "auto commit push"
         git push
