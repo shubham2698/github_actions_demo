@@ -24,18 +24,23 @@ runs:
       shell: bash
 
     - name: Clone Repository
-      run: | 
-        git clone https://${{ inputs.token }}@github.com/${{ inputs.repository }}.git
+      run: |
+        if [ "${{ inputs.repository-name }}" != "." ]; then
+          git clone https://${{ inputs.token }}@github.com/${{ inputs.repository }}.git
+          cd ${{ inputs.repository-name }}
+        fi
       shell: bash
 
 
     - name: Copy Files
-      run: find . -type f -name "*${{ inputs.file-pattern }}" -exec cp {} ./${{ inputs.repository-name }} \;
+      run: |
+        if [ "${{ inputs.repository-name }}" != "." ]; then
+          cp ${{ inputs.file-pattern }} ${{ inputs.repository-name }}
+        fi
       shell: bash
 
     - name: Add Commit push
       run: |
-        cd ${{ inputs.repository-name }}
         git add .
         git commit -m "auto commit push"
         git push
