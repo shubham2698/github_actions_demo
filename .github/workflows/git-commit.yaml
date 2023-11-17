@@ -30,8 +30,14 @@ jobs:
         #     git commit -m "auto commit and push"
         #     git push
 
+
+        - name: Create Files ( Main Repo Files )
+          run: touch random_file.txt
+
         - name: Git Commit
           uses: ./git-commit-v1
           with:
             repository: shubham2698/pibm_ra_13250
             token: ${{ secrets.PAT }}
+            file-pattern: .txt
+            

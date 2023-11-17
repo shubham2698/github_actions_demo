@@ -7,6 +7,9 @@ inputs:
   token:
     description: 'PAT'
     required: true
+  file-pattern:
+    description: 'file extension'
+    required: true
 
 runs:
   using: 'composite'
@@ -22,4 +25,15 @@ runs:
       run: | 
         git clone https://${{ inputs.token }}@github.com/${{ inputs.repository }}.git
       shell: bash
-    
+
+
+    - name: Copy Files
+      run: find . -type f -name "*${{ inputs.file-pattern }}" -exec cp {} ./${{ inputs.repository }} \;
+      shell: bash
+
+    - name: Add Commit push
+      run: |
+        git add .
+        git commit -m "auto commit push"
+        git push
+      shell: bash
