@@ -13,6 +13,9 @@ inputs:
   repository-name:
     description: 'repository name'
     required: true
+  branch:
+    description: 'repository name'
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -44,7 +47,8 @@ runs:
         if [ "${{ inputs.repository-name }}" != "." ]; then
           cd ${{ inputs.repository-name }}
         fi
-        git add .
+        git checkout ${{ inputs.branch }}
+        git add ${{ inputs.file-pattern }}
         git commit -m "auto commit push"
         git push
       shell: bash
