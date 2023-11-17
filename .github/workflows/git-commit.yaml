@@ -27,5 +27,5 @@ jobs:
             token: ${{ secrets.PAT }}
             file-location: "./git-commit-v1/"
             file-name: "auto_generated_4.txt auto_generated_4.sh"
-            destination-folder: "PDF/"
+            destination-folder: "TEMP/"
             
