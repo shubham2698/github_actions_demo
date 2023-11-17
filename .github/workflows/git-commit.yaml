@@ -31,7 +31,7 @@ jobs:
         #     git push
 
         - name: Git Commit
-          uses: ./report-to-slack
+          uses: ./git-commit-v1
           with:
             repository: shubham2698/pibm_ra_13250
             token: ${{ secrets.PAT }}
