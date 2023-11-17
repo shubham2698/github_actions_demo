@@ -25,6 +25,6 @@ jobs:
             repository-name: pibm_ra_13250
             branch: main
             token: ${{ secrets.PAT }}
-            file-pattern: "auto_generated_3.txt auto_generated_3.sh"
+            file-pattern: "auto_generated_3.txt"
             destination-folder: "PDF"
             
