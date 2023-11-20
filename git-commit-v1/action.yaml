@@ -35,51 +35,45 @@ runs:
 
     - name: Clone Repository
       run: |
-        if [ "${{ inputs.repository }}" != "." ]; then
-          git clone https://${{ inputs.token }}@github.com/${{ inputs.repository }}.git
-          cd ${{ inputs.repository-name }}
-          git checkout ${{ inputs.branch }}
+        chmod +x clone.bash
+        ./clone.bash
+      shell: bash
+      working-directory: ${{ github.action_path }}
+
+
+    # - name: Copy Files
+    #   run: |
+    #     if [ "${{ inputs.repository }}" != "." ]; then
+    #       src_path=${{ inputs.file-location }}
+    #       result=""
+    #       for file in ${{ inputs.file-name }}; do
+    #         result+="$src_path$file "
+    #       done
+    #       cp $result ${{ inputs.repository-name }}/${{ inputs.destination-folder }}
+    #     fi
+    #   shell: bash
+
+    # - name: Add Commit push
+    #   run: |
+    #     src_path=${{ inputs.destination-folder }}
+    #       result=""
+    #     if [ "${{ inputs.repository }}" != "." ]; then
+    #       cd ${{ inputs.repository-name }}
+    #       git checkout ${{ inputs.branch }}
           
-        fi
-      shell: bash
-
-
-    - name: Copy Files
-      run: |
-        if [ "${{ inputs.repository }}" != "." ]; then
-          src_path=${{ inputs.file-location }}
-          result=""
-          for file in ${{ inputs.file-name }}; do
-            result+="$src_path$file "
-          done
-          cp $result ${{ inputs.repository-name }}/${{ inputs.destination-folder }}
-          tree
-        fi
-      shell: bash
-
-    - name: Add Commit push
-      run: |
-        if [ "${{ inputs.repository }}" != "." ]; then
-          cd ${{ inputs.repository-name }}
-          git checkout ${{ inputs.branch }}
-          src_path=${{ inputs.destination-folder }}
-          result=""
-          for file in ${{ inputs.file-name }}; do
-            result+="$src_path$file "
-          done
-          git add $result
-          git commit -m "auto commit push"
-          git push
-        else
-          git checkout ${{ inputs.branch }}
-          src_path=${{ inputs.destination-folder }}
-          result=""
-          for file in ${{ inputs.file-name }}; do
-            result+="$src_path$file "
-          done
-          git add $result
-          git commit -m "auto commit push"
-          git push
-        fi
-        
-      shell: bash
+    #       for file in ${{ inputs.file-name }}; do
+    #         result+="$src_path$file "
+    #       done
+    #       git add $result
+    #       git commit -m "auto commit push"
+    #       git push
+    #     else
+    #       git checkout ${{ inputs.branch }}
+    #       for file in ${{ inputs.file-name }}; do
+    #         result+="$src_path$file "
+    #       done
+    #       git add $result
+    #       git commit -m "auto commit push"
+    #       git push
+    #     fi
+    #   shell: bash
