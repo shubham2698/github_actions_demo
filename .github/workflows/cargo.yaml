@@ -1,0 +1,26 @@
+name: Cargo Specific Version
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+
+jobs:
+  Add-Rust-Version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Rust 1.72
+        run: | 
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+          rustup toolchain install nightly
+          rustup install 1.72.0
+          cargo --version
+          rustc --version
+
+
+    
