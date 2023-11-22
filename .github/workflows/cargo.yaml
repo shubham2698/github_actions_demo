@@ -16,7 +16,7 @@ jobs:
 
       - name: Install Rust 1.72
         run: | 
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+          curl -y --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
           rustup toolchain install nightly
           rustup install 1.72.0
           cargo --version

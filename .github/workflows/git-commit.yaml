@@ -3,7 +3,7 @@ name: Git Commit Push
 on:
   push:
     branches:
-      - main
+      - none
   workflow_dispatch:
 
 jobs:
