@@ -14,12 +14,25 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Rust 1.72
-        run: | 
+      # - name: Install Rust 1.72
+      #   run: | 
+      #     curl -y --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      #     rustup default nightly-2023-06-14
+      #     cargo --version
+      #     rustc --version
+      
+      - name: Install Rust
+        id: install_rust
+        run: |
+          sudo apt-get update && sudo apt-get install -y clang
+          sudo apt-get install pkg-config libssl-dev -y
           curl -y --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-          rustup default nightly-2023-06-14
+          rustup default nightly-2023-06-09
           cargo --version
           rustc --version
+          rustup show
+          rustup component add rustfmt && cargo install cargo-audit && cargo install cargo2junit && cargo install cargo-llvm-cov
+          rm -r /home/runner/.cargo/registry   
 
 
     
