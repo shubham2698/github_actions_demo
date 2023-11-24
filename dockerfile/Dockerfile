@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-COPY sample.sh .
+COPY ./dockerfile/ . 
 RUN chmod +x sample.sh
 
 ENTRYPOINT ["./sample.sh"]
