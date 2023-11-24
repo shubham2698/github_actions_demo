@@ -3,7 +3,7 @@ name: Cargo Specific Version
 on:
   push:
     branches:
-      - main
+      - none
   workflow_dispatch:
 
 
