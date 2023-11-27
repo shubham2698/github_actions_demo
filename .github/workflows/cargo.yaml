@@ -37,13 +37,13 @@ jobs:
           tar -xzvf pandoc-3.1.9-linux-amd64.tar.gz
           sudo mv pandoc-3.1.9/ /usr/local/bin/
           export PATH="/usr/local/bin/pandoc-3.1.9/bin:$PATH"
-          sudo ln -s /path/
-          echo '{"name": "Shubham Joshi", "age": 35, "email": "imailshubhamjoshi@gmail.com"}' > sample.json
-          markdown-test-report sample.json -o sample.md
-          pandoc sample.md -o output.html
-          cat output.htmlto/pandoc-3.1.9/bin/pandoc /usr/local/bin/pandoc
+          sudo ln -s /path/to/pandoc-3.1.9/bin/pandoc /usr/local/bin/pandoc
           pandoc --version
           rm -r /home/runner/.cargo/registry   
 
-      
-          
+      - name: Convert Json to HTML Pandoc
+        run: |
+          echo '{"name": "Shubham Joshi", "age": 35, "email": "imailshubhamjoshi@gmail.com"}' > sample.json
+          markdown-test-report sample.json -o sample.md
+          pandoc sample.md -o output.html
+          cat output.html
