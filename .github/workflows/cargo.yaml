@@ -32,7 +32,16 @@ jobs:
           rustc --version
           rustup show
           rustup component add rustfmt && cargo install cargo-audit && cargo install cargo2junit && cargo install cargo-llvm-cov
+          cargo install markdown-test-report
+          curl -LO https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-linux-amd64.tar.gz
+          tar -xzvf pandoc-3.1.9-linux-amd64.tar.gz
+          sudo mv pandoc-3.1.9/ /usr/local/bin/
+          pandoc --version
           rm -r /home/runner/.cargo/registry   
 
-
-    
+      - name: Convert Json to HTML Pandoc
+        run: |
+          echo '{"name": "Shubham Joshi", "age": 35, "email": "imailshubhamjoshi@gmail.com"}' > sample.json
+          markdown-test-report sample.json -o sample.md
+          pandoc sample.md -o output.html
+          cat output.html
