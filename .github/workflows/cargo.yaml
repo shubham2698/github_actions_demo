@@ -37,7 +37,7 @@ jobs:
           tar -xzvf pandoc-3.1.9-linux-amd64.tar.gz
           sudo mv pandoc-3.1.9/ /usr/local/bin/
           export PATH="/usr/local/bin/pandoc-3.1.9/bin:$PATH"
-          sudo ln -s /path/to/pandoc-3.1.9/bin/pandoc /usr/local/bin/pandoc
+          sudo ln -s /usr/local/bin/pandoc-3.1.9/bin/pandoc /usr/local/bin/pandoc
           pandoc --version
           rm -r /home/runner/.cargo/registry   
 
