@@ -34,8 +34,8 @@ jobs:
           cat report.html
           tree
 
-      # - name: Upload HTML report
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: test-report
-      #     path: go-tests/report.html
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-report
+          path: go-tests/report.html
