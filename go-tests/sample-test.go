@@ -2,6 +2,8 @@ package stringutil
 
 import (
 	"testing"
+	"fmt"
+    "strings"
 )
 
 func ToUpper(s string) string {

@@ -25,8 +25,9 @@ jobs:
       
       - name: Execute Go Tests
         run: |
-          go mod init github.com/shubham2698/go-lang-report-html
           cd go-tests
+          go mod init github.com/shubham2698/go-lang-report-html
+          go mod tidy
           go test -json > report.json
           tree
       - name: Upload HTML report
