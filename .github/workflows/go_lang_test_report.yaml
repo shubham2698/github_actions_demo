@@ -18,17 +18,14 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: '1.21.4'
-
-      - name: HTML Converter
-        run: go install gotest.tools/gotestsum@latest
       
       - name: Execute Go Tests
         run: |
           cd go-tests
+          get -u github.com/vakenbolt/go-test-report/
           go mod init github.com/shubham2698/go-lang-report-html
           go mod tidy
-          go test -json > report.json
-          gotestsum --junitfile report.json --output=report.html
+          go test -json | go-test-report
           tree
 
       # - name: Upload HTML report
