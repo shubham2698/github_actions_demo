@@ -2,7 +2,6 @@ package stringutil
 
 import (
 	"testing"
-	"fmt"
     "strings"
 )
 
