@@ -28,7 +28,7 @@ jobs:
           go mod init github.com/shubham2698/go-lang-report-html
           go mod tidy
           go test -json > report.json
-          gotestsum --junitfile report.json
+          gotestsum --junitfile report.json --output=report.html
           tree
 
       # - name: Upload HTML report
