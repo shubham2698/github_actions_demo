@@ -22,7 +22,7 @@ jobs:
       - name: Execute Go Tests
         run: |
           cd go-tests
-          go get -u github.com/vakenbolt/go-test-report/
+          go install github.com/vakenbolt/go-test-report@latest
           go mod init github.com/shubham2698/go-lang-report-html
           go mod tidy
           go test -json | go-test-report
