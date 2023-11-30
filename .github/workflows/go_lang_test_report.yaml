@@ -29,10 +29,12 @@ jobs:
           go mod init github.com/shubham2698/go-lang-report-html
           go mod tidy
           go test -json > report.json
-          go-junit-report < report.json > report.html
+          # go-junit-report < report.json > report.html
+          cat report.json
           tree
-      - name: Upload HTML report
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-report
-          path: go-tests/report.html
+
+      # - name: Upload HTML report
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: test-report
+      #     path: go-tests/report.html
