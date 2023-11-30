@@ -27,7 +27,7 @@ jobs:
         run: |
           cd go-tests
           go test -json > go-tests/report.json
-          
+          tree
       - name: Upload HTML report
         uses: actions/upload-artifact@v2
         with:
