@@ -27,7 +27,7 @@ jobs:
         run: |
           cd go-tests
           go test -json > go-tests/report.json
-          echo ""
+          tree
           go-junit-report < go-tests/report.json > go-tests/report.html
 
       - name: Upload HTML report
