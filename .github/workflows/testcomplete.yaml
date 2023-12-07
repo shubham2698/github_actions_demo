@@ -19,7 +19,6 @@ jobs:
     runs-on: windows-latest
     permissions: write-all
     env:
-      TEST_EXECUTE_DOWNLOAD_URL: "https://downloads.smartbear.com/TestExecute1552SLM.exe"
       TEST_EXECUTE_BIN: "C:\Program Files (x86)\\SmartBear\\TestExecute 15\\Bin\\TestExecute.exe"
     steps:
       - name: Checkout Code
@@ -32,8 +31,8 @@ jobs:
 
       - name: Download TestExecute
         run: |
-          Invoke-WebRequest -Uri "${{ vars.TEST_EXECUTE_DOWNLOAD_URL }}" -OutFile ".\TE.exe"
-          echo "TestExecute downloaded - ${{ vars.TEST_EXECUTE_DOWNLOAD_URL }}"
+          Invoke-WebRequest -Uri "https://downloads.smartbear.com/TestCompleteSDK1559.exe" -OutFile ".\TE.exe"
+          echo "TestExecute downloaded - https://downloads.smartbear.com/TestCompleteSDK1559.exe"
 
       - name: Show working folder content
         run: dir

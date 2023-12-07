@@ -3,7 +3,7 @@ name: Go Lang Test Case HTML Report
 on:
   push:
     branches:
-      - main
+      - none
   workflow_dispatch:
 
 
