@@ -1,7 +1,9 @@
-name: TestExecute Simple Test
+name: TestComplete Installation
 run-name: TestExecute run from GitHub Action (${{ github.actor }})
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       project:
@@ -17,7 +19,7 @@ jobs:
     runs-on: windows-latest
     permissions: write-all
     env:
-      TEST_EXECUTE_DOWNLOAD_URL: https://downloads.smartbear.com/TestCompleteSDK1559.exe?_ga=2.223752155.1584573307.1701765665-2073716179.1701765662
+      TEST_EXECUTE_DOWNLOAD_URL: "https://downloads.smartbear.com/TestExecute1552SLM.exe"
       TEST_EXECUTE_BIN: "C:\Program Files (x86)\\SmartBear\\TestExecute 15\\Bin\\TestExecute.exe"
     steps:
       - name: Checkout Code
