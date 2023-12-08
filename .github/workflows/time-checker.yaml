@@ -1,0 +1,13 @@
+name: Time Check
+
+on:
+  push:
+  workflow_dispatch:
+
+
+jobs:
+  Time-Checker:
+    runs-on: windows-latest
+    steps:
+      - name: Time Checker
+        run: time
