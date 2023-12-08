@@ -1,14 +1,11 @@
-name: Daily Job
+name: Taskbase Automation
 
 on:
-  # schedule:
-    push:
-      branches:
-        - main
-    # - cron: '0 0 * * *' # Executes the job every day at midnight UTC
+  schedule:
+    - cron: '21 1 * * 1-5'
 
 jobs:
-  execute_script:
+  Taskbase-Autofill:
     runs-on: windows-latest
 
     steps:
