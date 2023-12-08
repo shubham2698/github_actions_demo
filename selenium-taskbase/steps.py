@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from datetime import datetime
+import os
 
 def login(browser,url_to_open):
     browser.get(url_to_open)
@@ -11,8 +12,8 @@ def login(browser,url_to_open):
     password_input = browser.find_element(By.ID, 'txtPassword')
     login_button = browser.find_element(By.ID, 'btnLogin')
 
-    username = 'shubham_joshi@neovasolutions.in'
-    password = 'MH12hy6196'
+    username = os.environ.get('N_USERNAME')
+    password = os.environ.get('n_PASSWORD')
 
     username_input.send_keys(username)
     password_input.send_keys(password)
