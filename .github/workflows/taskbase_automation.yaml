@@ -2,7 +2,7 @@ name: Taskbase Automation
 
 on:
   schedule:
-    - cron: '10 20 * * 1-6'
+    - cron: '25 20 * * 1-6'
 
 jobs:
   Taskbase-Autofill:
