@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
+from datetime import datetime
 
 def login(browser,url_to_open):
     browser.get(url_to_open)
@@ -18,6 +19,13 @@ def login(browser,url_to_open):
 
     login_button.click()
     time.sleep(3)
+
+
+def select_date(browser):
+    today_date = datetime.now().strftime('%d-%b-%Y')
+    text_field = browser.find_element(By.ID, 'ctl00_ContentPlaceHolder1_txtEntryDate')
+    text_field.clear()  # Clear existing text
+    text_field.send_keys(today_date) 
 
 
 def select_project(browser):
