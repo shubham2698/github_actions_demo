@@ -9,12 +9,14 @@ from selenium.common.exceptions import WebDriverException
 
 url_to_open = 'http://114.143.149.14:4356//TaskbaseAWS-2.0/NeovaTaskBase/LoginPage.aspx'
 file_path = './data.csv'
-
-gecko_driver_path = 'geckodriver'
-firefox_service = Service(gecko_driver_path)
-firefox_options = Options()
-firefox_options.headless = True
-browser = webdriver.Firefox(service=firefox_service,options=firefox_options)
+try:
+    gecko_driver_path = 'geckodriver'
+    firefox_service = Service(gecko_driver_path)
+    firefox_options = Options()
+    # firefox_options.headless = True
+    browser = webdriver.Firefox(service=firefox_service,options=firefox_options)
+except WebDriverException as e:
+        print(f"WebDriverException: {e}")
 
 try:
     
