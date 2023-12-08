@@ -1,4 +1,4 @@
-name: Time Check
+name: Date Check
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
 
 
 jobs:
-  Time-Checker:
+  Date-Checker:
     runs-on: windows-latest
     steps:
-      - name: Time Checker
-        run: time
+      - name: Date Checker
+        run: date
