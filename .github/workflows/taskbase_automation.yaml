@@ -16,8 +16,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Firefox
-        run: |
-            sudo snap install firefox
+        uses: browser-actions/setup-firefox@v1.4.0
+
+      - name: Firefox Version
+        run: firefox --version
 
       - name: Install Selenium
         run: |

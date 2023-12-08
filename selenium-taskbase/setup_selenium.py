@@ -7,6 +7,6 @@ def setup():
     gecko_driver_path = 'geckodriver'
     firefox_service = Service(gecko_driver_path)
     firefox_options = Options()
-    # firefox_options.headless = True
+    firefox_options.headless = True
     browser = webdriver.Firefox(service=firefox_service,options=firefox_options)
     return browser
