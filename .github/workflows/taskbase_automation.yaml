@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - name: Date
+        run: date
 
       - name: Install Firefox
         uses: browser-actions/setup-firefox@v1.4.0
