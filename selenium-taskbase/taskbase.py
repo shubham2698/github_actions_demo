@@ -3,7 +3,7 @@ from steps import login,select_project,select_phase,select_time,write_descriptio
 from get_data import get_data
 
 url_to_open = 'http://114.143.149.14:4356//TaskbaseAWS-2.0/NeovaTaskBase/LoginPage.aspx'
-file_path = 'selenium-taskbase/data.csv'
+file_path = './data.csv'
 browser = setup()
 
 try:
