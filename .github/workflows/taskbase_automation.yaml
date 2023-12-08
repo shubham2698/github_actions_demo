@@ -35,3 +35,6 @@ jobs:
         run: |
           cd selenium-taskbase
           python taskbase.py
+        env:
+          N_USERNAME: ${{ secrets.N_USERNAME }}
+          N_PASSWORD: ${{ secrets.N_PASSWORD }}
