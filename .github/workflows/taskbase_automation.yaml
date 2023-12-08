@@ -15,10 +15,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install Firefox
+        run:
+          sudo snap install firefox
+
       - name: Install Selenium
         run: |
           pip install selenium
 
       - name: Run Selenium Script
         run:
-          python ./selenium-taskbase/taskbase.py
+          cd selenium-taskbase
+          python taskbase.py
