@@ -4,7 +4,7 @@ from selenium.webdriver.firefox.options import Options
 
 
 def setup():
-    gecko_driver_path = 'geckodriver'
+    gecko_driver_path = 'selenium-taskbase/geckodriver'
     firefox_service = Service(gecko_driver_path)
     firefox_options = Options()
     browser = webdriver.Firefox(service=firefox_service,options=firefox_options)
