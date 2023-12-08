@@ -3,7 +3,7 @@ run-name: TestExecute run from GitHub Action (${{ github.actor }})
 on:
   push:
     branches:
-      - main
+      - none
   workflow_dispatch:
     inputs:
       project:
