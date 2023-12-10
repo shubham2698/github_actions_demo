@@ -1,7 +1,6 @@
 name: Date Check
 
 on:
-  push:
   workflow_dispatch:
 
 
