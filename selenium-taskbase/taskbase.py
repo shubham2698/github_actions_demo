@@ -14,7 +14,7 @@ def browser():
         
         firefox_options = Options()
         firefox_options.headless = True
-        browser = SeleniumManager.driver_location("firefox")
+        browser = SeleniumManager.driver_location(firefox_options,"firefox")
         return browser
     except WebDriverException as e:
         print(f"WebDriverException: {e}")
