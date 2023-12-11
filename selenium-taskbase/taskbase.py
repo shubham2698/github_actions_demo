@@ -1,17 +1,19 @@
 import time
 from selenium.webdriver.common.by import By
 import selenium.webdriver as webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import WebDriverException
-
 import pytest
 
 @pytest.fixture(scope="module")
 def browser():
     try:
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")  # Run Chrome in headless mode
-        browser = webdriver.Chrome('./chromedriver', options=chrome_options)  # Pass 'options' parameter
+        
+        firefox_service = Service('geckodriver')
+        firefox_options = Options()
+        firefox_options.headless = True
+        browser = webdriver.Firefox(service=firefox_service,options=firefox_options)
         return browser
     except WebDriverException as e:
         print(f"WebDriverException: {e}")
