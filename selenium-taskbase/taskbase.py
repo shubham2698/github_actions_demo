@@ -1,8 +1,8 @@
 import time
 from selenium.webdriver.common.by import By
 import selenium.webdriver as webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import WebDriverException
-from selenium.webdriver.common.keys import Keys
 
 import pytest
 
