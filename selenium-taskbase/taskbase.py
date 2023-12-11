@@ -10,10 +10,9 @@ import pytest
 def browser():
     try:
         
-        firefox_service = Service('geckodriver')
         firefox_options = Options()
         firefox_options.headless = True
-        browser = webdriver.Firefox(service=firefox_service,options=firefox_options)
+        browser = webdriver.Firefox(service=Service(r'geckodriver'),options=firefox_options)
         return browser
     except WebDriverException as e:
         print(f"WebDriverException: {e}")
