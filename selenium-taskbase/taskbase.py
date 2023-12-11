@@ -1,20 +1,45 @@
-from setup_selenium import setup
-from steps import login,select_project,select_phase,select_time,write_description,add_data,select_date
-from get_data import get_data
+import time
+from selenium.webdriver.common.by import By
+import selenium.webdriver as webdriver
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from selenium.common.exceptions import WebDriverException
+import pytest
 
-url_to_open = 'http://114.143.149.14:4356//TaskbaseAWS-2.0/NeovaTaskBase/LoginPage.aspx'
-file_path = './data.csv'
-browser = setup()
+@pytest.fixture(scope="module")
+def browser():
+    try:
+        gecko_driver_path = 'geckodriver'
+        firefox_service = Service(gecko_driver_path)
+        firefox_options = Options()
+        firefox_options.headless = True
+        browser = webdriver.Firefox(service=firefox_service,options=firefox_options)
+        return browser
+    except WebDriverException as e:
+        print(f"WebDriverException: {e}")
 
-try:
-    
-    login(browser,url_to_open)
-    select_date(browser)
-    select_project(browser)    
-    select_phase(browser)
-    select_time(browser)
-    write_description(browser,get_data(file_path))
-    add_data(browser)
+@pytest.fixture(scope="module")
+def url_to_open():
+    return 'http://114.143.149.14:4356//TaskbaseAWS-2.0/NeovaTaskBase/LoginPage.aspx'
 
-finally:
-    browser.quit()
+
+def test_login(browser,url_to_open):
+    try:
+        browser.get(url_to_open)
+        username_input = browser.find_element(By.ID, 'txtUserName')
+        password_input = browser.find_element(By.ID, 'txtPassword')
+        login_button = browser.find_element(By.ID, 'btnLogin')
+
+        username = "shubham_joshi@neovasolutions.in"
+        password = "MH12hy6196"
+
+        username_input.send_keys(username)
+        password_input.send_keys(password)
+
+        login_button.click()
+        time.sleep(3)
+        print(browser.title)
+        assert "Neova Task Base" in browser.title
+    finally:
+        browser.quit()
+
