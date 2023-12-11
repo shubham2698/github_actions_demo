@@ -4,7 +4,8 @@ import selenium.webdriver as webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import WebDriverException
-from selenium.webdriver.common.selenium_manager import SeleniumManager
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
 import pytest
 
 @pytest.fixture(scope="module")
@@ -14,7 +15,7 @@ def browser():
         
         firefox_options = Options()
         firefox_options.headless = True
-        browser = SeleniumManager.driver_location(firefox_options,"firefox")
+        browser = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install(),firefox_options))
         return browser
     except WebDriverException as e:
         print(f"WebDriverException: {e}")
