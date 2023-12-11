@@ -13,7 +13,7 @@ def browser():
         chrome_options.add_argument("--headless")  # Run Chrome in headless mode
         chrome_options.add_argument("--disable-gpu")
         chromedriver_path = 'chromedriver'
-        browser = webdriver.Chrome(executable_path=chromedriver_path, options=chrome_options)
+        browser = webdriver.Chrome(chromedriver_path, options=chrome_options)
         return browser
     except WebDriverException as e:
         print(f"WebDriverException: {e}")
