@@ -4,12 +4,15 @@ import selenium.webdriver as webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import WebDriverException
+from selenium import webdriver
+from webdriver_manager.firefox import GeckoDriverManager
 import pytest
 
 @pytest.fixture(scope="module")
 def browser():
     try:
-        gecko_driver_path = 'selenium-taskbase/geckodriver'
+        
+        gecko_driver_path = webdriver.Firefox(executable_path=GeckoDriverManager().install())
         firefox_service = Service(gecko_driver_path)
         firefox_options = Options()
         firefox_options.headless = True
