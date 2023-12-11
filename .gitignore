@@ -1,2 +1,3 @@
 selenium-automation/venv
 selenium-taskbase/__pycache__
+selenium-taskbase/.pytest_cache
