@@ -1,8 +1,8 @@
 import time
 from selenium.webdriver.common.by import By
 import selenium.webdriver as webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.common.keys import Keys
 
 import pytest
 
@@ -13,7 +13,7 @@ def browser():
         chrome_options.add_argument("--headless")  # Run Chrome in headless mode
         chrome_options.add_argument("--disable-gpu")
         chromedriver_path = 'chromedriver'
-        browser = webdriver.Chrome(chromedriver_path, options=chrome_options)
+        browser = webdriver.Chrome('./chromedriver',chrome_options)
         return browser
     except WebDriverException as e:
         print(f"WebDriverException: {e}")
