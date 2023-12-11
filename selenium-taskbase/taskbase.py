@@ -1,21 +1,19 @@
 import time
 from selenium.webdriver.common.by import By
 import selenium.webdriver as webdriver
-from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import WebDriverException
-from selenium.webdriver.firefox.service import Service as FirefoxService
-from webdriver_manager.firefox import GeckoDriverManager
+
 import pytest
 
 @pytest.fixture(scope="module")
 def browser():
     try:
-        
-        
-        firefox_options = Options()
-        firefox_options.headless = True
-        browser = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install(),firefox_options))
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+        chrome_options.add_argument("--disable-gpu")
+        chromedriver_path = 'chromedriver'
+        browser = webdriver.Chrome(executable_path=chromedriver_path, options=chrome_options)
         return browser
     except WebDriverException as e:
         print(f"WebDriverException: {e}")
