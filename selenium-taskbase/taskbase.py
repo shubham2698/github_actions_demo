@@ -9,7 +9,7 @@ import pytest
 @pytest.fixture(scope="module")
 def browser():
     try:
-        gecko_driver_path = 'geckodriver'
+        gecko_driver_path = 'selenium-taskbase/geckodriver'
         firefox_service = Service(gecko_driver_path)
         firefox_options = Options()
         firefox_options.headless = True
