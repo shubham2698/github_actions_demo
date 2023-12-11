@@ -12,7 +12,7 @@ import pytest
 def browser():
     try:
         
-        gecko_driver_path = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+        gecko_driver_path = webdriver.Firefox(executable_path=GeckoDriverManager().install())
         firefox_service = Service(gecko_driver_path)
         firefox_options = Options()
         firefox_options.headless = True
